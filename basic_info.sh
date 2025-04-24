@@ -3,7 +3,15 @@
 PCAP=$1
 INTERVAL=$2 # seconds
 
+if [ -z "$PCAP" ]; then
+    echo "Usage: $0 <pcap file> <interval>"
+    exit 1
+fi
 
+if [ -z "$INTERVAL" ]; then
+    echo "Usage: $0 <pcap file> <interval>"
+    exit 1
+fi
 
 echo "expert info"
 tshark -r ${PCAP} -q -z expert
